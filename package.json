@@ -1,0 +1,31 @@
+{
+  "name": "pipeline-overview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp webpack-dev",
+    "dev-server": "gulp webpack-dev-server"
+  },
+  "keywords": [
+    "Maker"
+  ],
+  "author": "Fernando Tiberti",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "6.x",
+    "babel-loader": "6.x",
+    "babel-preset-es2015": "6.x",
+    "gulp": "3.x",
+    "gulp-util": "3.x",
+    "webpack": "1.x",
+    "webpack-dev-server": "1.x",
+    "openurl": "1.x",
+    "extract-text-webpack-plugin": "1.x",
+    "style-loader": "0.x",
+    "css-loader": "0.x",
+    "less": "latest",
+    "less-loader": "2.x"
+  }
+}
