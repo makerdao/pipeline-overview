@@ -27,5 +27,8 @@
     "css-loader": "0.x",
     "less": "latest",
     "less-loader": "2.x"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.6"
   }
 }

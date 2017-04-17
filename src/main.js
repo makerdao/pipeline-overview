@@ -1,9 +1,8 @@
 require("./styles/main.less");
-
-var a = 12;
-var square = (x) => x*x; 
+import Handlebars from 'handlebars';
 
 document.addEventListener("DOMContentLoaded", () => {
-	document.querySelector("#var").innerHTML = a;
-	document.querySelector("#result").innerHTML = square(a);
+	const source   = document.getElementById("entry-template").innerHTML;
+	const template = Handlebars.compile(source);
+	document.getElementById("entries").innerHTML = template({title: "My New Post", body: "This is my first post!"});
 });
