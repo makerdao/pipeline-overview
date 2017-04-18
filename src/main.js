@@ -1,8 +1,9 @@
-require("./styles/main.less");
+import "./styles/main.less";
 import Handlebars from 'handlebars';
+import data from './data.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-	const source   = document.getElementById("entry-template").innerHTML;
+	const source   = document.getElementById("main-template").innerHTML;
 	const template = Handlebars.compile(source);
-	document.getElementById("entries").innerHTML = template({title: "My New Post", body: "This is my first post!"});
+	document.getElementById("content").innerHTML = template(data);
 });

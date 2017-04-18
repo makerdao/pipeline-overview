@@ -1,4 +1,4 @@
-export default const data = {
+const data = {
   stages: ["Concept", "Implementation", "Review", "Done"],
   groups: [{
     taskGroup: "Core Technology",
@@ -45,7 +45,7 @@ export default const data = {
       {
         name: "Aquamarine Paper",
         DRI: "Denis",
-        description: "This is the translation of the reference implementation of the Dai Credit System as defined in the Purple Paper into a formal system called linear logic. This will allow us to begin formal verification of the Dai Credit System by creating linear logic proofs, detailed in the Proof Production Pipeline work item."
+        description: "This is the translation of the reference implementation of the Dai Credit System as defined in the Purple Paper into a formal system called linear logic. This will allow us to begin formal verification of the Dai Credit System by creating linear logic proofs, detailed in the Proof Production Pipeline work item.",
         links: ["https://en.wikipedia.org/wiki/Linear_logic", "https://plato.stanford.edu/entries/logic-linear/", "https://dapphub.chat/channel/linear-logic-study-group"],
         stage: "Concept"
       }
@@ -85,7 +85,7 @@ export default const data = {
       {
         name: "Keeper Software",
         DRI: "Reverendus",
-        description: "The Keeper framework will present a sensible means of running periodic tasks against the blockchain. This relates to Maker because we have many aspects of our system that expect profit-seeking robots to "poke" a contract and trigger a state change. We want to ensure that as many users as possible have access to these profit-making opportunities, to ensure the overall health of the system.",
+        description: "The Keeper framework will present a sensible means of running periodic tasks against the blockchain. This relates to Maker because we have many aspects of our system that expect profit-seeking robots to \"poke\" a contract and trigger a state change. We want to ensure that as many users as possible have access to these profit-making opportunities, to ensure the overall health of the system.",
         subtasks: ["Oracle price publishing task", "Token auction participation task", "Extract repeatable logic"],
         stage: "Concept"
       }
@@ -116,3 +116,5 @@ export default const data = {
     ]
   }]
 };
+
+export default data;

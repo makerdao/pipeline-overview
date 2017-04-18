@@ -9,17 +9,22 @@
 	<link rel="stylesheet" type="text/css" href="dist/main.css">
 </head>
 <body>
-	<h1>Hello world!</h1>
-	<div id="entries">
+	<h1>Maker Pipeline Overview</h1>
+	<div id="content">
 	</div>
 
-	<script id="entry-template" type="text/x-handlebars-template">
-	  <div class="entry">
-	    <h1>{{title}}</h1>
-	    <div class="body">
-	      {{body}}
-	    </div>
-	  </div>
+	<script id="main-template" type="text/x-handlebars-template">
+	  <table>
+	    <thead>
+				<tr>
+					{{#each stages}}
+						<td>{{this}}</td>
+					{{/each}}
+				</tr>
+			</thead>
+	    <tbody>
+			</tbody>
+	  </table>
 	</script>
 </body>
 </html>
