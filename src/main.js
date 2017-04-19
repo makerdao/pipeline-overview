@@ -1,3 +1,4 @@
+import 'bootstrap/less/bootstrap.less';
 import "./styles/main.less";
 import Handlebars from 'handlebars';
 import data from './data.js';
@@ -19,7 +20,7 @@ Handlebars.registerHelper('columnByStage', task => {
 	return new Handlebars.SafeString(html);
 })
 
-// This is used for the rowspan attribute 
+// This is used for the rowspan attribute
 Handlebars.registerHelper('lengthPlusOne', items => items.length + 1);
 
 document.addEventListener("DOMContentLoaded", () => {

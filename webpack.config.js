@@ -24,6 +24,9 @@ module.exports = {
 		}, {
 			test: /\.less$/,
 			loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap!less-loader?sourceMap")
+		}, {
+			test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+			loader: "file-loader"
 		}]
 	},
 	plugins: [
