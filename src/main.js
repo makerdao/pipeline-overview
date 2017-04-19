@@ -11,7 +11,7 @@ Handlebars.registerHelper('columnByStage', task => {
 	}
 	let html = '';
 	for (let i = 0; i < data.stages.length; i++) {
-		html += '<td>';
+		html += '<td class="col-md-2">';
 		if (i === stageIndex) {
 			html += task.name;
 		}

@@ -17,16 +17,16 @@
 	  <table class="table">
 	    <thead>
 				<tr>
-					<td></td>
+					<th></th>
 					{{#each stages}}
-						<td>{{this}}</td>
+						<th>{{this}}</th>
 					{{/each}}
 				</tr>
 			</thead>
 	    <tbody>
 				{{#each groups}}
 					<tr>
-						<td rowspan="{{lengthPlusOne tasks}}">{{taskGroup}}</td>
+						<td rowspan="{{lengthPlusOne tasks}}" class="col-md-2">{{taskGroup}}</td>
 					</tr>
 					{{#each tasks}}
 					<tr>
