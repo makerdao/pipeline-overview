@@ -6,7 +6,7 @@ import data from './data.js';
 Handlebars.registerHelper('columnByStage', task => {
 	const stageIndex = data.stages.indexOf(task.stage);
 	if (stageIndex === -1) {
-		throw `Invalid stage: ${task.stage}`;
+		throw `Task ${task.name} has an invalid stage: "${task.stage}"`;
 	}
 	let html = '';
 	for (let i = 0; i < data.stages.length; i++) {
@@ -18,6 +18,9 @@ Handlebars.registerHelper('columnByStage', task => {
 	}
 	return new Handlebars.SafeString(html);
 })
+
+// This is used for the rowspan attribute 
+Handlebars.registerHelper('lengthPlusOne', items => items.length + 1);
 
 document.addEventListener("DOMContentLoaded", () => {
 	const source   = document.getElementById("main-template").innerHTML;

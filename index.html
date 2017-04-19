@@ -25,9 +25,12 @@
 			</thead>
 	    <tbody>
 				{{#each groups}}
+					<tr>
+						<td rowspan="{{lengthPlusOne tasks}}">{{taskGroup}}</td>
+					</tr>
 					{{#each tasks}}
 					<tr>
-						<td>{{../taskGroup}}</td>{{columnByStage this}}
+						{{columnByStage this}}
 					</tr>
 					{{/each}}
 				{{/each}}
