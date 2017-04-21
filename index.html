@@ -37,5 +37,11 @@
 			</tbody>
 	  </table>
 	</script>
+	<script id="task-column-template" type="text/x-handlebars-template">
+		<td class="col-md-2">{{{content}}}</td>
+	</script>
+	<script id="task-link-template" type="text/x-handlebars-template">
+		<a class="js-task-link" data-task-id="{{id}}" title="by @{{DRI}}" href="#">{{name}}</a>
+	</script>
 </body>
 </html>

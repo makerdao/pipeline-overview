@@ -3,6 +3,8 @@ import "./styles/main.less";
 import Handlebars from 'handlebars';
 import data from './data.js';
 
+const templates = {};
+
 // Add IDs to tasks
 (function addTaskIds() {
 	let id = 0;
@@ -33,11 +35,12 @@ Handlebars.registerHelper('columnByStage', task => {
 	}
 	let html = '';
 	for (let i = 0; i < data.stages.length; i++) {
-		html += '<td class="col-md-2">';
 		if (i === stageIndex) {
-			html += `<a class="js-task-link" data-task-id="${task.id}" title="by @${task.DRI}" href="#">${task.name}</a>`;
+			const link = templates['task-link'](task);
+			html += templates['task-column']({content: link});
+		} else {
+			html += templates['task-column']({});
 		}
-		html += '</td>';
 	}
 	return new Handlebars.SafeString(html);
 })
@@ -46,10 +49,14 @@ Handlebars.registerHelper('columnByStage', task => {
 Handlebars.registerHelper('lengthPlusOne', items => items.length + 1);
 
 document.addEventListener("DOMContentLoaded", () => {
-	const source   = document.getElementById("main-template").innerHTML;
-	const template = Handlebars.compile(source);
-	document.getElementById("content").innerHTML = template(data);
+	// Compile templates
+	['main', 'task-column', 'task-link'].forEach(name => {
+		const source = document.getElementById(name + "-template").innerHTML;
+		templates[name] = Handlebars.compile(source);
+	});
+	document.getElementById("content").innerHTML = templates['main'](data);
 
+	// Bind click events
 	const taskLinks = document.querySelectorAll('.js-task-link');
 	Array.from(taskLinks).forEach(link => {
     link.addEventListener('click', function(event) {
