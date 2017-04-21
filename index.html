@@ -51,9 +51,29 @@
 		    <h3 class="panel-title">{{name}}</h3>
 		  </div>
 		  <div class="panel-body">
-				<p>Directly Responsible Individual: {{DRI}}</p>
+				<p><span title="Directly Responsible Individual">DRI</span>: {{DRI}}</p>
 				<p>Stage: {{stage}}</p>
 				<p>{{description}}</p>
+				{{#if subtasks}}
+				<p>
+					<h4>Subtasks</h4>
+					<ul>
+						{{#each subtasks}}
+						<li>{{this}}</li>
+						{{/each}}
+					</ul>
+				</p>
+				{{/if}}
+				{{#if links}}
+				<p>
+					<h4>Links</h4>
+					<ul>
+						{{#each links}}
+						<li><a href="{{this}}">{{this}}</a></li>
+						{{/each}}
+					</ul>
+				</p>
+				{{/if}}
 				<button id="close-modal-button">Close</button>
 		  </div>
 		</div>
