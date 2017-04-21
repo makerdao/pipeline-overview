@@ -12,6 +12,8 @@
 	<h1>Maker Pipeline Overview</h1>
 	<div id="content">
 	</div>
+	<div id="modals">
+	</div>
 
 	<script id="main-template" type="text/x-handlebars-template">
 	  <table class="table">
@@ -42,6 +44,19 @@
 	</script>
 	<script id="task-link-template" type="text/x-handlebars-template">
 		<a class="js-task-link" data-task-id="{{id}}" title="by @{{DRI}}" href="#">{{name}}</a>
+	</script>
+	<script id="task-modal-template" type="text/x-handlebars-template">
+		<div class="task-modal panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">{{name}}</h3>
+		  </div>
+		  <div class="panel-body">
+				<p>Directly Responsible Individual: {{DRI}}</p>
+				<p>Stage: {{stage}}</p>
+				<p>{{description}}</p>
+				<button id="close-modal-button">Close</button>
+		  </div>
+		</div>
 	</script>
 </body>
 </html>

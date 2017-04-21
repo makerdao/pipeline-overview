@@ -50,7 +50,7 @@ Handlebars.registerHelper('lengthPlusOne', items => items.length + 1);
 
 document.addEventListener("DOMContentLoaded", () => {
 	// Compile templates
-	['main', 'task-column', 'task-link'].forEach(name => {
+	['main', 'task-column', 'task-link', 'task-modal'].forEach(name => {
 		const source = document.getElementById(name + "-template").innerHTML;
 		templates[name] = Handlebars.compile(source);
 	});
@@ -61,8 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	Array.from(taskLinks).forEach(link => {
     link.addEventListener('click', function(event) {
 			event.preventDefault();
-			const taskId = event.target.dataset.taskId
-			alert(getTaskById(taskId).description);
+			const taskId = event.target.dataset.taskId;
+			const task = getTaskById(taskId);
+			// Show task modal
+			document.getElementById("modals").innerHTML = templates['task-modal'](task);
+			document.getElementById("close-modal-button").addEventListener('click', function(event) {
+				document.getElementById("modals").innerHTML = '';
+			});
     });
 	});
 });
