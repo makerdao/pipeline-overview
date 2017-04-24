@@ -53,7 +53,11 @@
 				<h3>{{name}}</h3>
 				<p>
 					<span title="Directly Responsible Individual">DRI <span class="glyphicon glyphicon-info-sign"></span></span>:
-					<a href="https://chat.makerdao.com/direct/{{DRI}}" target="_blank">@{{DRI}}</a>
+					{{#if DRI}}
+						<a href="https://chat.makerdao.com/direct/{{DRI}}" target="_blank">@{{DRI}}</a>
+					{{else}}
+						<i>none</i>
+					{{/if}}
 				</p>
 				<p>Stage: {{stage}}</p>
 				<p>{{description}}</p>
