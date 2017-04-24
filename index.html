@@ -47,10 +47,9 @@
 	</script>
 	<script id="task-modal-template" type="text/x-handlebars-template">
 		<div class="task-modal panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title">{{name}}</h3>
-		  </div>
 		  <div class="panel-body">
+				<a id="close-modal-button" href="#" class="btn btn-link">Close <span class="glyphicon glyphicon-remove"></span></a>
+				<h3>{{name}}</h3>
 				<p><span title="Directly Responsible Individual">DRI <span class="glyphicon glyphicon-info-sign"></span></span>: {{DRI}}</p>
 				<p>Stage: {{stage}}</p>
 				<p>{{description}}</p>
@@ -74,7 +73,7 @@
 					</ul>
 				</p>
 				{{/if}}
-				<button id="close-modal-button">Close</button>
+
 		  </div>
 		</div>
 	</script>
