@@ -63,11 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
 			event.preventDefault();
 			const taskId = event.target.dataset.taskId;
 			const task = getTaskById(taskId);
+
 			// Show task modal
 			document.getElementById("modals").innerHTML = templates['task-modal'](task);
-			document.getElementById("close-modal-button").addEventListener('click', event => {
+			function closeModal(event) {
 				document.getElementById("modals").innerHTML = '';
-			});
+			}
+			document.getElementById("close-modal-button").addEventListener('click', closeModal);
+			document.getElementById("task-modal-overlay").addEventListener('click', closeModal);
     });
 	});
 });

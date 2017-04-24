@@ -22,8 +22,8 @@ const data = {
         stage: "Concept"
       },
       {
-        name: "sai",
-        DRI: "Nikolai",
+        name: "Sai",
+        DRI: "nikolai",
         description: "By far the most impactful work item on this list, Sai (Simple Dai) represents our first generation temporary stablecoin. The design mimics the mechanics of the actual Dai Credit System, which means we will be able to learn many lessons about the operation and implementation tradeoffs associated with an actual stablecoin in the wild. The main difference between Sai and the Dai Credit System is the fact that Sai completely trusts the authorized price feed provider (detailed in the Oracle MVP task), allowing for a much simpler design. We are going to start with a slow rollout, but we intend to open Sai up to the community and make it easy for anyone to benefit from its stability.",
         subtasks: ["Launch", "Feedback Cycle into Dai Credit System"],
         links: ["https://github.com/makerdao/sai", "https://github.com/makerdao/sai-explorer"],
