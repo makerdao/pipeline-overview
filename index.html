@@ -30,7 +30,7 @@
 	    <tbody>
 				{{#each groups}}
 					<tr style="background-color:{{color}}">
-						<td rowspan="{{lengthPlusOne tasks}}"><h6>{{taskGroup}}</h6></td>
+						<td rowspan="{{lengthPlusOne tasks}}"><h6><strong>{{taskGroup}}</strong></h6></td>
 					</tr>
 					{{#each tasks}}
 					<tr>
@@ -45,7 +45,7 @@
 		<td>{{{content}}}</td>
 	</script>
 	<script id="task-link-template" type="text/x-handlebars-template">
-		<a class="js-task-link btn btn-default" data-task-id="{{id}}" title="by @{{DRI}}" href="#" style="background-color:{{color}}">
+		<a class="js-task-link btn btn-default no-transform" data-task-id="{{id}}" title="by @{{DRI}}" href="#" style="background-color:{{color}}">
 			{{name}}
 		</a>
 	</script>
