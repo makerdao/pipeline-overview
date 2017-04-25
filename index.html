@@ -27,7 +27,7 @@
 			</thead>
 	    <tbody>
 				{{#each groups}}
-					<tr>
+					<tr style="background-color:{{color}}">
 						<td rowspan="{{lengthPlusOne tasks}}" class="col-md-2">{{taskGroup}}</td>
 					</tr>
 					{{#each tasks}}
@@ -43,7 +43,9 @@
 		<td class="col-md-2">{{{content}}}</td>
 	</script>
 	<script id="task-link-template" type="text/x-handlebars-template">
-		<a class="js-task-link" data-task-id="{{id}}" title="by @{{DRI}}" href="#">{{name}}</a>
+		<a class="js-task-link btn btn-default" data-task-id="{{id}}" title="by @{{DRI}}" href="#" style="background-color:{{color}}">
+			{{name}}
+		</a>
 	</script>
 	<script id="task-modal-template" type="text/x-handlebars-template">
 		<div id="task-modal-overlay"></div>

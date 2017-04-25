@@ -5,12 +5,12 @@ import data from './data.js';
 
 const templates = {};
 
-// Add IDs to tasks
-(function addTaskIds() {
+(function addTaskIdsAndColor() {
 	let id = 0;
 	data.groups.forEach(group => {
 		group.tasks.forEach(task => {
 			task.id = id++;
+			task.color = group.color;
 		})
 	})
 }());

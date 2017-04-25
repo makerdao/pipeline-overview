@@ -2,6 +2,7 @@ const data = {
   stages: ["Concept", "Implementation", "Review", "Done"],
   groups: [{
     taskGroup: "Core Technology",
+    color: "#77DD77",
     tasks: [
       {
         name: "Vow Settler",
@@ -33,6 +34,7 @@ const data = {
   },
   {
     taskGroup: "Specification",
+    color: "#FDFD96",
     tasks: [
       {
         name: "Purple Paper",
@@ -53,6 +55,7 @@ const data = {
   },
   {
     taskGroup: "Verification",
+    color: "#FFB347",
     tasks: [
       {
         name: "External Code Review",
@@ -73,6 +76,7 @@ const data = {
   },
   {
     taskGroup: "DevOps",
+    color: "#CB99C9",
     tasks: [
       {
         name: "Oracle MVP",
@@ -93,6 +97,7 @@ const data = {
   },
   {
     taskGroup: "MKR Governance",
+    color: "#AEC6CF",
     tasks: [
       {
         name: "Establishment of the Dai Foundation",
