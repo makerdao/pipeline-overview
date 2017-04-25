@@ -1,7 +1,8 @@
 import './styles/custom-bootstrap.less';
 import './styles/main.less';
 import Handlebars from 'handlebars';
-import data from './data.js';
+import data from './data';
+import background from './background';
 
 const templates = {};
 
@@ -57,8 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	document.getElementById("content").innerHTML = templates['main'](data);
 
 	// Bind click events
-	const taskLinks = document.querySelectorAll('.js-task-link');
-	Array.from(taskLinks).forEach(link => {
+	document.querySelectorAll('.js-task-link').forEach(link => {
     link.addEventListener('click', event => {
 			event.preventDefault();
 			const taskId = event.target.dataset.taskId;
@@ -72,5 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			document.getElementById("close-modal-button").addEventListener('click', closeModal);
 			document.getElementById("task-modal-overlay").addEventListener('click', closeModal);
     });
+	});
+
+	// Animated background
+	background.start({
+		colors: data.groups.map(group => group.color)
 	});
 });

@@ -10,11 +10,12 @@
 </head>
 <body>
 	<h1>Maker Pipeline Overview</h1>
+	<canvas class="animated-background" width="200" height="200"></canvas>
+	<canvas class="animated-background" width="200" height="200"></canvas>
 	<div id="content">
 	</div>
 	<div id="modals">
 	</div>
-
 	<script id="main-template" type="text/x-handlebars-template">
 	  <table class="table">
 	    <thead>
@@ -43,7 +44,7 @@
 		<td class="col-md-2">{{{content}}}</td>
 	</script>
 	<script id="task-link-template" type="text/x-handlebars-template">
-		<a class="js-task-link btn btn-default" data-task-id="{{id}}" title="by @{{DRI}}" href="#" style="background-color:{{color}}">
+		<a class="js-task-link btn btn-default" data-task-id="{{id}}" title="DRI: {{DRI}}" href="#" style="background-color:{{color}}">
 			{{name}}
 		</a>
 	</script>
