@@ -54,7 +54,9 @@
 				<a id="close-modal-button" href="#" class="btn btn-link">Close <span class="glyphicon glyphicon-remove"></span></a>
 				<h3>{{name}}</h3>
 				<p>
-					<span title="Directly Responsible Individual">DRI <span class="glyphicon glyphicon-info-sign"></span></span>:
+					<div class="my-tooltip">DRI
+					  <span class="tooltiptext">Directly Responsible Individual</span>
+					</div>:
 					{{#if DRI}}
 						<a href="https://chat.makerdao.com/direct/{{DRI}}" target="_blank">@{{DRI}}</a>
 					{{else}}

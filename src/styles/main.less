@@ -20,3 +20,44 @@
   right: 10px;
   top: 10px;
 }
+
+/* Tooltip container */
+.my-tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.my-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 210px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -105px; /* Use half of the width to center the tooltip */
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.my-tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.my-tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
