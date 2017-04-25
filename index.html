@@ -9,10 +9,12 @@
 	<link rel="stylesheet" type="text/css" href="/dist/main.css">
 </head>
 <body>
-	<h1>Maker Pipeline Overview</h1>
-	<div id="content">
-	</div>
-	<div id="modals">
+	<div class="container">
+		<h1>Maker Pipeline Overview</h1>
+		<div id="content">
+		</div>
+		<div id="modals">
+		</div>
 	</div>
 
 	<script id="main-template" type="text/x-handlebars-template">
@@ -28,7 +30,7 @@
 	    <tbody>
 				{{#each groups}}
 					<tr style="background-color:{{color}}">
-						<td rowspan="{{lengthPlusOne tasks}}" class="col-md-2"><h6>{{taskGroup}}</h6></td>
+						<td rowspan="{{lengthPlusOne tasks}}"><h6>{{taskGroup}}</h6></td>
 					</tr>
 					{{#each tasks}}
 					<tr>
@@ -40,7 +42,7 @@
 	  </table>
 	</script>
 	<script id="task-column-template" type="text/x-handlebars-template">
-		<td class="col-md-2">{{{content}}}</td>
+		<td>{{{content}}}</td>
 	</script>
 	<script id="task-link-template" type="text/x-handlebars-template">
 		<a class="js-task-link btn btn-default" data-task-id="{{id}}" title="by @{{DRI}}" href="#" style="background-color:{{color}}">
