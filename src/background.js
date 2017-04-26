@@ -5,7 +5,7 @@ function draw(ctx) {
 function fitToContainer(canvas){
   // Make it visually fill the positioned parent
   canvas.style.width = '100%';
-  canvas.style.height = '100%';
+  canvas.style.height = '840px';
 
   // ...then set the internal size to match
   canvas.width  = canvas.offsetWidth;
@@ -33,7 +33,7 @@ const background = {
     const lines = generateLines(0).concat(generateLines((lineSeparation + lineWidth) * colors.length));
 
     modelCanvas.width = modelWidth;
-    modelCanvas.height = (lineSeparation + lineWidth) * lines.length + lineWidth + lineSeparation;
+    modelCanvas.height = ((lineSeparation + lineWidth) * lines.length) + lineWidth;
 
     // Context global setup
     ctx.globalAlpha = alpha;
