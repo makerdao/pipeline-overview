@@ -15,15 +15,12 @@ function fitToContainer(canvas){
 let paused = false;
 
 const background = {
-  start({colors}) {
+  start({colors, lineSeparation=22, lineLength=20, lineWidth=4, tileWidth=200, alpha=0.4}) {
     const targetCanvas = document.querySelector('.animated-background');
     const targetCtx = targetCanvas.getContext('2d');
     const modelCanvas = document.createElement("canvas");
     const ctx = modelCanvas.getContext('2d');
-    const lineSeparation = 22;
-    const lineLength = 20;
-    const lineWidth = 4;
-    const modelWidth = 200;
+    const modelWidth = tileWidth;
     function generateLines(yOffset) {
       return colors.map((color, index) => ({
         x: Math.random() * modelWidth,
@@ -39,7 +36,7 @@ const background = {
     modelCanvas.height = (lineSeparation + lineWidth) * lines.length + lineWidth + lineSeparation;
 
     // Context global setup
-    ctx.globalAlpha = 0.5;
+    ctx.globalAlpha = alpha;
     ctx.lineCap = "round";
     ctx.lineWidth = lineWidth;
 
