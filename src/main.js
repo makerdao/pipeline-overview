@@ -60,15 +60,16 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Bind click events
 	document.querySelectorAll('.js-task-link').forEach(link => {
     link.addEventListener('click', event => {
+			// Show task modal
 			event.preventDefault();
 			const taskId = event.target.dataset.taskId;
 			const task = getTaskById(taskId);
-
-			// Show task modal
 			document.getElementById("modals").innerHTML = templates['task-modal'](task);
+			background.pause();
 			function closeModal(event) {
 				event.preventDefault();
 				document.getElementById("modals").innerHTML = '';
+				background.resume();
 			}
 			document.getElementById("close-modal-button").addEventListener('click', closeModal);
 			document.getElementById("task-modal-overlay").addEventListener('click', closeModal);

@@ -12,6 +12,8 @@ function fitToContainer(canvas){
   canvas.height = canvas.offsetHeight;
 }
 
+let paused = false;
+
 const background = {
   start({colors}) {
     const targetCanvas = document.querySelector('.animated-background');
@@ -42,6 +44,10 @@ const background = {
     ctx.lineWidth = lineWidth;
 
     function draw() {
+      if (paused) {
+        window.requestAnimationFrame(draw);
+        return;
+      }
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       targetCtx.clearRect(0, 0, targetCtx.canvas.width, targetCtx.canvas.height);
       lines.forEach(line => {
@@ -71,9 +77,14 @@ const background = {
 
     fitToContainer(targetCanvas);
     document.body.onresize = function() {
-      console.log('resizee');
       fitToContainer(targetCanvas);
     };
+  },
+  pause() {
+    paused = true;
+  },
+  resume() {
+    paused = false;
   }
 }
 
