@@ -18,10 +18,10 @@ const background = {
     const targetCtx = targetCanvas.getContext('2d');
     const modelCanvas = document.createElement("canvas");
     const ctx = modelCanvas.getContext('2d');
-    const lineSeparation = 2;
+    const lineSeparation = 15;
     const lineLength = 20;
     const lineWidth = 4;
-    const modelWidth = 50;
+    const modelWidth = 200;
     function generateLines(yOffset) {
       return colors.map((color, index) => ({
         x: Math.random() * modelWidth,
@@ -34,10 +34,10 @@ const background = {
     const lines = generateLines(0).concat(generateLines((lineSeparation + lineWidth) * colors.length));
 
     modelCanvas.width = modelWidth;
-    modelCanvas.height = (lineSeparation + lineWidth) * lines.length;
+    modelCanvas.height = (lineSeparation + lineWidth) * lines.length + lineWidth + lineSeparation;
 
     // Context global setup
-    ctx.globalAlpha = 0.8;
+    ctx.globalAlpha = 0.5;
     ctx.lineCap = "round";
     ctx.lineWidth = lineWidth;
 
