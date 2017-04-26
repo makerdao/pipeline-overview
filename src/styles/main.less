@@ -1,6 +1,11 @@
-body {
+body, .container {
   background-color: #f8f8f8;
 }
+
+.container {
+  box-shadow: 15px 0 20px -4px #f8f8f8, -15px 0 15px -4px #f8f8f8;
+}
+
 
 #logo {
   background-image: url('../makerdao.svg');
@@ -120,7 +125,6 @@ body {
 }
 
 canvas.animated-background {
-  margin-top: 110px;
   z-index: -1;
   position: absolute;
 }
