@@ -1,8 +1,43 @@
-.task-modal {
+body {
+  background-color: #f8f8f8;
+}
+
+#logo {
+  background-image: url('../makerdao.svg');
+  width: 100px;
+  height: 88px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#logo, #tag-line {
+  float: left;
+}
+
+#tag-line {
+  position: relative;
+  height: 103px;
+  width: 300px;
+
+  span {
+    position: absolute;
+    bottom: 0;
+    font-size: 23px;
+  }
+}
+
+.table {
+  background-color: white;
+}
+
+#modals {
   position: absolute;
-  top: 100px;
-  left: 100px;
-  max-width: 700px;
+  top: 0;
+}
+
+.task-modal {
+  top: 150px;
+  z-index: 2;
 }
 
 #task-modal-overlay {
@@ -13,6 +48,7 @@
   bottom: 0;
   right: 0;
   opacity: 0.4;
+  z-index: 1;
 }
 
 #close-modal-button {
@@ -23,13 +59,11 @@
 
 /* Tooltip container */
 .my-tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-}
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 
-/* Tooltip text */
-.my-tooltip .tooltiptext {
+  .tooltiptext {
     visibility: hidden;
     width: 210px;
     background-color: black;
@@ -44,14 +78,9 @@
     bottom: 100%;
     left: 50%;
     margin-left: -105px; /* Use half of the width to center the tooltip */
-}
+  }
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.my-tooltip:hover .tooltiptext {
-    visibility: visible;
-}
-
-.my-tooltip .tooltiptext::after {
+  .tooltiptext::after {
     content: " ";
     position: absolute;
     top: 100%; /* At the bottom of the tooltip */
@@ -60,4 +89,13 @@
     border-width: 5px;
     border-style: solid;
     border-color: black transparent transparent transparent;
+  }
+
+  &:hover .tooltiptext {
+    visibility: visible;
+  }
+}
+
+.no-transform {
+  text-transform: none;
 }

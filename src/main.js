@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			// Show task modal
 			document.getElementById("modals").innerHTML = templates['task-modal'](task);
 			function closeModal(event) {
+				event.preventDefault();
 				document.getElementById("modals").innerHTML = '';
 			}
 			document.getElementById("close-modal-button").addEventListener('click', closeModal);
