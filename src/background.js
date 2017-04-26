@@ -2,10 +2,21 @@ function draw(ctx) {
   let num = 0;
 }
 
+function fitToContainer(canvas){
+  // Make it visually fill the positioned parent
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+
+  // ...then set the internal size to match
+  canvas.width  = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+
 const background = {
   start({colors}) {
     const contexts = Array.from(document.querySelectorAll('.animated-background'))
       .map(canvas => canvas.getContext('2d'));
+    const canvas = document.querySelector('.animated-background');
     const lineSeparation = 2;
     const lineLength = 20;
     const lineWidth = 4;
@@ -15,9 +26,11 @@ const background = {
       color
     }));
 
+
     function draw(ctx) {
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
+      ctx.fillStyle = 'gray';
+      ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       lines.forEach(line => {
         ctx.beginPath();
         ctx.strokeStyle = line.color;
@@ -45,6 +58,8 @@ const background = {
       window.requestAnimationFrame(drawAll);
     }
     window.requestAnimationFrame(drawAll);
+
+    setInterval(() => fitToContainer(canvas), 200);
   }
 }
 
