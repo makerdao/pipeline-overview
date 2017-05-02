@@ -3,6 +3,7 @@ import './styles/main.less';
 import Handlebars from 'handlebars';
 import data from './data';
 import background from './background';
+import logoImage from './makerdao.svg';
 
 const templates = {};
 
@@ -55,7 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		const source = document.getElementById(name + "-template").innerHTML;
 		templates[name] = Handlebars.compile(source);
 	});
+	
 	document.getElementById("content").innerHTML = templates['main'](data);
+	const logo = document.getElementById("logo");
+	logo.setAttribute('src', logoImage);
 
 	// Bind click events
 	document.querySelectorAll('.js-task-link').forEach(link => {
