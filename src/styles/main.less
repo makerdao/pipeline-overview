@@ -1,3 +1,5 @@
+html, body{height:100%;}
+
 body, .container {
   background-color: #f8f8f8;
 }
@@ -9,8 +11,6 @@ body, .container {
 header {
   display: table;
 }
-
-
 
 #logo {
   margin-top: 5px;
@@ -65,20 +65,38 @@ header {
 #modals {
   position: absolute;
   top: 0;
+  height: 100%;
 }
 
-.task-modal {
-  top: 150px;
-  z-index: 2;
-}
-
-#task-modal-overlay {
-  background-color: gray;
+#task-modal-container {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  height: 100%;
+}
+
+.task-modal {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 900px;
+  margin: 0 auto;
+  left: 4px;
+  right: 4px;
+  z-index: 2;
+  max-height: 95%;
+  overflow-y: auto;
+}
+
+
+
+#task-modal-overlay {
+  background-color: gray;
+  position: absolute;
+  height: 100%;
+  width: 100%;
   opacity: 0.4;
   z-index: 1;
 }
