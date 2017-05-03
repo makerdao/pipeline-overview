@@ -6,23 +6,20 @@ body, .container {
   box-shadow: 15px 0 20px -4px #f8f8f8, -15px 0 15px -4px #f8f8f8;
 }
 
+header {
+  display: table;
+}
 
 #logo {
-  width: 100px;
-  height: 88px;
   margin-top: 5px;
   margin-bottom: 10px;
 }
 
-#logo, #tag-line {
-  float: left;
-}
-
 #tag-line {
+  display: table-cell;
   position: relative;
-  height: 103px;
   width: 300px;
-
+  height: 100%;
   span {
     position: absolute;
     bottom: 0;
