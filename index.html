@@ -71,21 +71,26 @@
 						<div class="task-name"><h4>{{name}}</h4></div>
 						<div class="spacer" style="clear: both;"></div>
 					</header>
-					<p>
-						<div class="my-tooltip">DRI
-						  <span class="tooltiptext">Directly Responsible Individual</span>
-						</div>:
-						{{#if DRI}}
-							<a href="https://chat.makerdao.com/direct/{{DRI}}" target="_blank">@{{DRI}}</a>
-						{{else}}
-							<i>none</i>
-						{{/if}}
-					</p>
-					<p>Stage: {{stage}}</p>
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="my-tooltip"><span class="category">DRI</span>
+							  <span class="tooltiptext">Directly Responsible Individual</span>
+							</div>:
+							{{#if DRI}}
+								<a href="https://chat.makerdao.com/direct/{{DRI}}" target="_blank">@{{DRI}}</a>
+							{{else}}
+								<i>none</i>
+							{{/if}}
+						</div>
+						<div class="col-sm-3">
+							<span class="category">Stage: </span>{{stage}}
+						</div>
+					</div>
+					<p></p>
 					<p>{{description}}</p>
 					{{#if subtasks}}
 					<p>
-						<h5>Subtasks</h5>
+						<h6 class="category">Subtasks</h6>
 						<ul>
 							{{#each subtasks}}
 							<li>{{this}}</li>
@@ -95,7 +100,7 @@
 					{{/if}}
 					{{#if links}}
 					<p>
-						<h5>Links</h5>
+						<h6 class="category">Links</h6>
 						<ul>
 							{{#each links}}
 							<li><a href="{{this}}" target="_blank">{{this}} <span class="glyphicon glyphicon-new-window small"></span></a></li>
