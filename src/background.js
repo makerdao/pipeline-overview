@@ -1,7 +1,3 @@
-function draw(ctx) {
-  let num = 0;
-}
-
 function fitToContainer(canvas){
   // Make it visually fill the positioned parent
   canvas.style.width = '100%';

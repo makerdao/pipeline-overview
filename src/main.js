@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const source = document.getElementById(name + "-template").innerHTML;
 		templates[name] = Handlebars.compile(source);
 	});
-	
+
 	document.getElementById("content").innerHTML = templates['main'](data);
 	const logo = document.getElementById("logo");
 	logo.setAttribute('src', logoImage);
@@ -81,12 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	// Animated background
-	background.start({
-		colors: data.groups.map(group => group.color),
-		lineSeparation: 22,
-		lineLength: 20,
-		lineWidth: 4,
-		tileWidth: 200,
-		alpha: 0.4
-	});
+	if (screen.width > 768) {
+		background.start({
+			colors: data.groups.map(group => group.color),
+			lineSeparation: 22,
+			lineLength: 20,
+			lineWidth: 4,
+			tileWidth: 200,
+			alpha: 0.4
+		});
+	}
 });
