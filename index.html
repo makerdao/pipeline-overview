@@ -12,11 +12,6 @@
 	<div>
 		<canvas class="animated-background"></canvas>
 		<div class="container">
-			<header id="top-header">
-				<!-- logo src gets set on main.js -->
-				<img id="logo" />
-				<div id="tag-line"><span>: PIPELINE OVERVIEW<span></div>
-			</header>
 			<div id="content">
 			</div>
 			<div id="modals">
@@ -27,7 +22,9 @@
 	  <table class="table panel panel-default">
 	    <thead>
 				<tr>
-					<th></th>
+					<th>
+						<img id="logo" /> PIPELINE
+					</th>
 					{{#each stages}}
 						<th>{{this}}</th>
 					{{/each}}
