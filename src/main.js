@@ -1,4 +1,4 @@
-import './styles/custom-bootstrap.less';
+import 'bootstrap/less/bootstrap.less';
 import './styles/main.less';
 import Handlebars from 'handlebars';
 import data from './data';
