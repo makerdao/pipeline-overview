@@ -152,27 +152,3 @@ canvas.animated-background {
   z-index: -1;
   position: absolute;
 }
-
-@signpost-height : 37px;
-/*
-.signpost from https://css-tricks.com/forums/topic/creating-a-signpost-shape-with-css-oblong-with-a-pointed-end/#post-174525
-*/
-.signpost { /* our rectangle */
-  width: 35px;
-  height: @signpost-height;
-  position: relative;
-
-  .signpost-pointy-end { /*  our pseudo-element */
-    position: absolute; /* takes the 'cap' out off flow */
-    top: 0; /* stick it to top edge of the sign */
-    left: 100%; /* push it way overto the right*/
-    height: 0; /* we're doing this with borders remember */
-    width: 0;
-    border-width: (@signpost-height / 2);
-    border-style: solid;
-    /* now we make some of theborders disappear*/
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-  }
-}
