@@ -105,49 +105,6 @@ body, .container {
   z-index: 10;
 }
 
-@tooltip-width : 210px;
-@tooltip-offset : 24px;/* Use half of the width to center the tooltip */
-@tooltip-bg-color: rgba(0,0,0,0.8);
-
-/* Tooltip container */
-.my-tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-
-  .tooltiptext {
-    visibility: hidden;
-    width: 210px;
-    background-color: @tooltip-bg-color;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    /* Position the tooltip text */
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: (-@tooltip-offset);
-  }
-
-  /* Arrow */
-  .tooltiptext::after {
-    content: " ";
-    position: absolute;
-    top: 100%; /* At the bottom of the tooltip */
-    left: @tooltip-offset;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: @tooltip-bg-color transparent transparent transparent;
-  }
-
-  &:hover .tooltiptext {
-    visibility: visible;
-  }
-}
-
 canvas.animated-background {
   z-index: -1;
   position: absolute;
