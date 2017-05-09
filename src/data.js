@@ -58,14 +58,16 @@ const data = {
     color: "#FFB347",
     tasks: [
       {
-        name: "External Code Review",
+        name: "Code Review",
+        fullname: "External Code Review",
         DRI: null,
         description: "The Dai Credit System will have to be reviewed by multiple competent external auditors before launching.",
         subtasks: ["Discuss potential auditors", "Contract with auditors", "Review & Feedback cycle"],
         stage: "Concept"
       },
       {
-        name: "Proof Production Pipeline",
+        name: "Proof Production",
+        fullname: "Proof Production Pipeline",
         DRI: null,
         description: "This task describes all the work necessary to create formal proofs about the Dai Credit System in linear logic. This will be the primary formal verification effort for the system, ensuring its safety by proving all of its invariants and guarantees. This work will build substantially on the groundwork laid by the Aquamarine paper.",
         subtasks: ["Understanding pirapira"],
@@ -100,20 +102,23 @@ const data = {
     color: "#AEC6CF",
     tasks: [
       {
-        name: "Establishment of the Dai Foundation",
+        name: "Dai Foundation",
+        fullname: "Establishment of the Dai Foundation",
         DRI: "rune",
         description: "This encompasses all the work necessary to get the Maker development fund transferred to a legal entity called the Dai Foundation. The development fund is currently administered by a transition team appointed by Rune, the original creator of all MKR, while he works with MME Legal to get the Dai Foundation established as a Stiftung in Zug Switzerland.",
         links: ["https://blog.makerdao.com/2017/02/19/establishment-of-the-dai-foundation/", "http://www.mme.ch/"],
         stage: "Implementation"
       },
       {
-        name: "Dai Credit System Dashboard",
+        name: "Dashboard",
+        fullname: "Dai Credit System Dashboard",
         DRI: "michael",
         description: "This will be a UI lens to view and interact with the Dai Credit System. It will allow for a bird's eye view of the system's open CDP set, oracle set, target price and rate. It will also allow a user to open a new CDP and manage any owned by their address. This explorer will be built on the DappHub application platform.",
         stage: "Concept"
       },
       {
-        name: "Proposal Bulletin Board with MKR Signaling",
+        name: "Bulletin Board",
+        fullname: "Proposal Bulletin Board with MKR Signaling",
         DRI: "zandy",
         description: "This task will begin to bootstrap the scientific community of MKR holders. Each CDP type will be posted publicly here for MKR holders to signal their approval or disapproval. Because we want to emphasize scientific consensus for MKR decisions, each proposal will have added Evidence and Interpretation sections to present the reasoning behind the proposal.",
         stage: "Concept"
