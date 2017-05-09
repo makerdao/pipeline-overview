@@ -12,11 +12,18 @@ body, .container {
 
 .table {
   background-color: white;
-
+  th {
+    text-transform: uppercase;
+  }
   .task-group-td {
     position: relative;
     box-shadow: 4px 0 5px -2px #aaa;
   }
+}
+
+.task-link {
+  text-transform: uppercase;
+  color: white;
 }
 
 #modals {
@@ -139,10 +146,6 @@ body, .container {
   &:hover .tooltiptext {
     visibility: visible;
   }
-}
-
-.no-transform {
-  text-transform: none;
 }
 
 canvas.animated-background {

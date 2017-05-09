@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	logo.setAttribute('src', logoImage);
 
 	// Bind click events
-	document.querySelectorAll('.js-task-link').forEach(link => {
+	document.querySelectorAll('.task-link').forEach(link => {
     link.addEventListener('click', event => {
 			// Show task modal
 			event.preventDefault();
