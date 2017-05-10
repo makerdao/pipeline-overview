@@ -38,7 +38,7 @@
 						</td>
 					</tr>
 					{{#each tasks}}
-					<tr>
+					<tr class="task-row">
 						{{columnByStage this}}
 					</tr>
 					{{/each}}
@@ -47,10 +47,11 @@
 	  </table>
 	</script>
 	<script id="task-column-template" type="text/x-handlebars-template">
-		<td>{{{content}}}</td>
+		<td style="background-color:{{color}}">{{{content}}}</td>
 	</script>
 	<script id="task-link-template" type="text/x-handlebars-template">
-		<a class="task-link btn btn-default" data-task-id="{{id}}" title="By @{{DRI}}" href="#" style="background-color:{{color}}">
+		<a class="task-link btn btn-default" data-task-id="{{id}}" title="By @{{DRI}}" href="#"
+		 style="background-color:{{colors.main}}; border-color:{{colors.border}}">
 			{{name}}
 		</a>
 	</script>

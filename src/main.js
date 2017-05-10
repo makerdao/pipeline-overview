@@ -12,7 +12,7 @@ const templates = {};
 	data.groups.forEach(group => {
 		group.tasks.forEach(task => {
 			task.id = id++;
-			task.color = group.color;
+			task.colors = group.colors;
 		})
 	})
 }());
@@ -37,11 +37,15 @@ Handlebars.registerHelper('columnByStage', task => {
 	}
 	let html = '';
 	for (let i = 0; i < data.stages.length; i++) {
+		let color = (i % 2) ? task.colors.lightCell : task.colors.darkCell;
 		if (i === stageIndex) {
 			const link = templates['task-link'](task);
-			html += templates['task-column']({content: link});
+			html += templates['task-column']({
+				content: link,
+				color
+			});
 		} else {
-			html += templates['task-column']({});
+			html += templates['task-column']({color});
 		}
 	}
 	return new Handlebars.SafeString(html);
@@ -83,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Animated background
 	if (screen.width > 768) {
 		background.start({
-			colors: data.groups.map(group => group.color),
+			colors: data.groups.map(group => group.colors.main),
 			lineSeparation: 22,
 			lineLength: 20,
 			lineWidth: 4,

@@ -2,7 +2,12 @@ const data = {
   stages: ["Concept", "Implementation", "Review", "Done"],
   groups: [{
     taskGroup: "Core Technology",
-    color: "#77DD77",
+    colors: {
+      main: "#00d1df",
+      border: "#00c4d1",
+      lightCell: "#f3fbfc",
+      darkCell: "#f0f8f9"
+    },
     tasks: [
       {
         name: "Vow Settler",
@@ -34,7 +39,12 @@ const data = {
   },
   {
     taskGroup: "Specification",
-    color: "#FDFD96",
+    colors: {
+      main: "#9875c7",
+      border: "#8d6db9",
+      lightCell: "#f8f7fb",
+      darkCell: "#f5f4f7"
+    },
     tasks: [
       {
         name: "Purple Paper",
@@ -55,7 +65,12 @@ const data = {
   },
   {
     taskGroup: "Verification",
-    color: "#FFB347",
+    colors: {
+      main: "#ffb25e",
+      border: "#fdaa59",
+      lightCell: "#fffaf5",
+      darkCell: "#fcf7f2"
+    },
     tasks: [
       {
         name: "Code Review",
@@ -78,7 +93,12 @@ const data = {
   },
   {
     taskGroup: "DevOps",
-    color: "#CB99C9",
+    colors: {
+      main: "#a4867f",
+      border: "#977c75",
+      lightCell: "#f9f8f7",
+      darkCell: "#f6f5f4"
+    },
     tasks: [
       {
         name: "Oracle MVP",
@@ -99,7 +119,12 @@ const data = {
   },
   {
     taskGroup: "MKR Governance",
-    color: "#AEC6CF",
+    colors: {
+      main: "#6ec78a",
+      border: "#68ba81",
+      lightCell: "#f6fbf8",
+      darkCell: "#f3f8f5"
+    },
     tasks: [
       {
         name: "Dai Foundation",
