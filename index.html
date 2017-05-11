@@ -43,6 +43,10 @@
 						{{columnByStage this}}
 					</tr>
 					{{/each}}
+					<!-- Hack to add a border after each task group -->
+					<tr class="extra-line-row">
+						<td></td>{{#each ../stages}}<td></td>{{/each}}
+					</tr>
 				{{/each}}
 			</tbody>
 	  </table>

@@ -8,8 +8,11 @@ body {
   width: 20px;
 }
 
+@table-border-color: #ececed;
+
 .table {
   background-color: white;
+  border: @table-border-color 2px solid;
   th {
     text-transform: uppercase;
     text-align: center;
@@ -17,9 +20,22 @@ body {
   .task-group-td {
     text-align: center;
     vertical-align: middle;
+    border-top: none;
+    border-right: @table-border-color 2px solid;
   }
   .task-row td {
     border: none;
+  }
+  td {
+    border-color: @table-border-color;
+  }
+  .extra-line-row {
+    height: 2px;
+    background-color: @table-border-color;
+    border-top: @table-border-color 1px solid;
+    td {
+      padding: 0;
+    }
   }
 }
 
