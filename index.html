@@ -55,7 +55,7 @@
 		<td style="background-color:{{color}}">{{{content}}}</td>
 	</script>
 	<script id="task-link-template" type="text/x-handlebars-template">
-		<a class="task-link btn btn-default" data-task-id="{{id}}" title="By @{{DRI}}" href="#"
+		<a class="task-link btn btn-default" data-task-id="{{id}}" href="#"
 		 style="background-color:{{colors.main}}; border-color:{{colors.border}}">
 			{{name}}
 		</a>
@@ -74,17 +74,19 @@
 			  </div>
 			  <div class="panel-body">
 					<div class="row">
-						<div class="col-sm-3">
-							<span class="category">DRI</span>
-							{{#if DRI}}
-								<a href="https://chat.makerdao.com/direct/{{DRI}}" target="_blank">@{{DRI}}</a>
-							{{else}}
-								<i>none</i>
-							{{/if}}
+						<div class="col-sm-2">
+							<span class="category">Stage</span></br>
+							{{stage}}
 						</div>
-						<div class="col-sm-3">
-							<span class="category">Stage: </span>{{stage}}
+						{{#if DRI}}
+						<div class="col-sm-3 responsible pull-right">
+								<img class="responsible-img" src="https://chat.makerdao.com/avatar/{{DRI}}" />
+								<div class="responsible-link">
+									<span class="category">Responsible</span><br/>
+									<a href="https://chat.makerdao.com/direct/{{DRI}}" target="_blank">@{{DRI}}</a>
+								</div>
 						</div>
+						{{/if}}
 					</div>
 					<p></p>
 					<p>{{description}}</p>
