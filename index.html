@@ -64,12 +64,15 @@
 		<div id="task-modal-container">
 			<div id="task-modal-overlay"></div>
 			<div class="task-modal panel panel-default">
+				<div class="panel-heading" style="background-color:{{colors.main}}">
+			    <h3 class="panel-title">
+						{{name}}
+						<a id="close-modal-button" href="#" class="btn btn-link">
+							<span class="glyphicon glyphicon-remove"></span>
+						</a>
+					</h3>
+			  </div>
 			  <div class="panel-body">
-					<a id="close-modal-button" href="#" class="btn btn-link">Close <span class="glyphicon glyphicon-remove"></span></a>
-					<header>
-						<div class="task-name"><h4>{{name}}</h4></div>
-						<div class="spacer" style="clear: both;"></div>
-					</header>
 					<div class="row">
 						<div class="col-sm-3">
 							<span class="category">DRI</span>

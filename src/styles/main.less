@@ -53,8 +53,6 @@ body {
     color: #ffffce;
     opacity: 0.8;
   }
-
-
 }
 
 
@@ -75,7 +73,6 @@ body {
 }
 
 .task-modal {
-  font-family: 'Open Sans', sans-serif;
   position: absolute;
   top: 30%;
   transform: translateY(-30%);
@@ -86,25 +83,9 @@ body {
   z-index: 2;
   max-height: 98%;
   overflow-y: auto;
-
+  border: none;
   ul {
     list-style-type: square;
-  }
-
-  header {
-    position: relative;
-    margin-top: 8px;
-    .signpost, .task-name {
-      float: left;
-    }
-    .signpost {
-      left: -30px;
-      top: 4px;
-      position: absolute;
-    }
-    .task-name {
-      margin-left: 28px;
-    }
   }
 
   .category {
@@ -113,16 +94,23 @@ body {
   }
 }
 
-@media (min-width: 768px) {
-  .task-modal{
-    padding-right: 10px;
-    padding-left: 10px;
-  }
+.panel-body {
+  font-family: 'Open Sans', sans-serif;
 }
 
+.panel-default .panel-heading {
+  color: white;
+  padding: 18px;
+  padding-left: 28px;
+}
+
+.panel-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
 #task-modal-overlay {
-  background-color: gray;
+  background-color: #575867;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -132,9 +120,16 @@ body {
 
 #close-modal-button {
   position: absolute;
-  right: 2px;
-  top: 2px;
+  top: 9px;
+  font-size: 16px;
+  right: 11px;
   z-index: 10;
+  color: white;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 canvas.animated-background {
