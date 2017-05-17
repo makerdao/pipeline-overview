@@ -73,13 +73,13 @@
 					</h3>
 			  </div>
 			  <div class="panel-body">
-					<div class="row">
-						<div class="col-sm-2">
+					<header>
+						<div class="stage-section">
 							<span class="category">Stage</span></br>
-							{{stage}}
+							<span class="stage" style="color:{{colors.main}}">{{stage}}</span>
 						</div>
 						{{#if DRI}}
-						<div class="col-sm-3 responsible pull-right">
+						<div class="responsible">
 								<img class="responsible-img" src="https://chat.makerdao.com/avatar/{{DRI}}" />
 								<div class="responsible-link">
 									<span class="category">Responsible</span><br/>
@@ -87,10 +87,14 @@
 								</div>
 						</div>
 						{{/if}}
-					</div>
+					</header>
 					<p></p>
-					<p>{{description}}</p>
+					<p>
+						<h6 class="category">Description</h6>
+						{{description}}
+					</p>
 					{{#if subtasks}}
+					<p></p>
 					<p>
 						<h6 class="category">Subtasks</h6>
 						<ul>
@@ -101,6 +105,7 @@
 					</p>
 					{{/if}}
 					{{#if links}}
+					<p></p>
 					<p>
 						<h6 class="category">Links</h6>
 						<ul>
