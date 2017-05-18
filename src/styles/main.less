@@ -22,11 +22,32 @@ a {
     border-top: none;
     background-color: white;
     height: 50px;
-    a:hover {
-      text-decoration: none;
+
+    #social-links {
+      margin-right: 20px;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 17px;
+      margin-right: 15px;
+      position: relative;
+      top: -3px;
+    }
+    a {
+      position: relative;
+      top: -5px;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    #twitter-img {
+      /* Make it the same size as the others*/
+      margin: 6.5px 9px 6.5px 9px;
     }
   }
 }
+
 
 @table-border-color: #ececed;
 
