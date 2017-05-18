@@ -1,64 +1,112 @@
-body, .container {
-  background-color: #f8f8f8;
+body {
+  background-color: #fdfdfd;
+  font-family: 'Montserrat', sans-serif;
+  color: #5c5c5c;
 }
 
-.container {
-  box-shadow: 15px 0 20px -4px #f8f8f8, -15px 0 15px -4px #f8f8f8;
-}
-
-#top-header {
-  display: table;
-}
-
-#logo {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
-#tag-line {
-  display: table-cell;
-  position: relative;
-  width: 300px;
-  height: 100%;
+#title {
   span {
-    position: absolute;
-    bottom: 0;
-    font-size: 23px;
+    margin-left: 15px;
+    position: relative;
+    top: 3px;
   }
 }
 
-@media (max-width: 400px) {
-  #logo {
-    width: 70px;
+a {
+  color: #00a2ef;
+  font-weight: bold;
+}
+
+#main-panel {
+  border: none;
+  box-shadow: 0px 1px 5px 0px gray;
+  overflow-x: auto;
+
+  .panel-footer {
+    border-top: none;
+    background-color: white;
+    height: 50px;
+
+    #social-links {
+      margin-right: 20px;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 17px;
+      margin-right: 15px;
+      position: relative;
+      top: -3px;
+    }
+    a {
+      position: relative;
+      top: -5px;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    #twitter-img {
+      /* Make it the same size as the others*/
+      margin: 6.5px 9px 6.5px 9px;
+    }
   }
-  #tag-line span {
-    font-size: 19px;
-    width: 220px;
-  }
+}
+
+
+@table-border-color: #ececed;
+
+.table thead tr th {
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .table {
   background-color: white;
-
+  border: @table-border-color 2px solid;
+  th {
+    text-transform: uppercase;
+    text-align: center;
+  }
   .task-group-td {
-    position: relative;
-    box-shadow: 4px 0 5px -2px #aaa;
-    h6 {
-      margin-left: 9px;
+    text-align: center;
+    vertical-align: middle;
+    border-top: none;
+    border-right: @table-border-color 2px solid;
+  }
+  .task-row td {
+    border: none;
+  }
+  td {
+    border-color: @table-border-color;
+  }
+  .extra-line-row {
+    height: 2px;
+    background-color: @table-border-color;
+    border-top: @table-border-color 1px solid;
+    td {
+      padding: 0;
     }
   }
+}
 
-  .colored-stripe {
-    position: absolute;
-    width: 10px;
-    top: 2px;
-    left: 2px;
-    bottom: 2px;
+.task-link {
+  display: block;
+  text-transform: uppercase;
+  color: white;
+  border-width: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: small;
+  font-weight: bold;
 
-    border-radius: 10px;
-    box-shadow: 1px 1px 2px gray inset;
+  &:hover, &:active, &:active:focus, &:focus {
+    color: #fff7d5;
+    opacity: 0.8;
   }
 }
+
+
+
 
 #modals {
   position: absolute;
@@ -75,56 +123,93 @@ body, .container {
   height: 100%;
 }
 
-@maker-green-dark : rgb(26, 140, 117);
-
 .task-modal {
   position: absolute;
   top: 30%;
   transform: translateY(-30%);
-  max-width: 800px;
+  max-width: 690px;
+  max-height: 98%;
   margin: 0 auto;
   left: 4px;
   right: 4px;
   z-index: 2;
-  max-height: 98%;
   overflow-y: auto;
-
+  border: none;
+  box-shadow: 0px 1px 5px 0px gray;
+  
   ul {
-    list-style-type: square;
-  }
-
-  header {
-    position: relative;
-    margin-top: 8px;
-    .signpost, .task-name {
-      float: left;
-    }
-    .signpost {
-      left: -30px;
-      top: 4px;
-      position: absolute;
-    }
-    .task-name {
-      margin-left: 28px;
-    }
+   list-style: none;
+   line-height: 20px;
+   padding-left: 10px;
+   margin-top: -5px;
+   li:before {
+      content: "•";
+      font-size: 230%;
+      padding-right: 8px;
+      line-height: 20px;
+      top: 6px;
+      position: relative;
+   }
   }
 
   .category {
     font-weight: bold;
+    font-size: 16px;
     color: #546979;
   }
-}
 
-@media (min-width: 768px) {
-  .task-modal{
-    padding-right: 10px;
-    padding-left: 10px;
+  .panel-body {
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 33px;
+    padding-right: 33px;
+
+    header {
+      height: 50px;
+      .stage-section {
+        float: left;
+      }
+      .responsible {
+        float: right;
+      }
+    }
   }
 }
 
 
+
+.panel-default .panel-heading {
+  color: white;
+  padding: 18px;
+  padding-left: 28px;
+}
+
+.panel-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.stage {
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.responsible-img {
+  float: left;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  margin-right: 7px;
+  border: 2.5px solid white;
+  box-shadow: 0px 2px 2px lightgray;
+}
+
+.responsible-link {
+  float: left;
+  padding-top: 3px;
+}
+
 #task-modal-overlay {
-  background-color: gray;
+  background-color: white;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -134,83 +219,21 @@ body, .container {
 
 #close-modal-button {
   position: absolute;
-  right: 2px;
-  top: 2px;
+  top: 9px;
+  font-size: 16px;
+  right: 11px;
   z-index: 10;
-}
+  color: white;
+  opacity: 0.7;
 
-@tooltip-width : 210px;
-@tooltip-offset : 24px;/* Use half of the width to center the tooltip */
-@tooltip-bg-color: rgba(0,0,0,0.8);
-
-/* Tooltip container */
-.my-tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-
-  .tooltiptext {
-    visibility: hidden;
-    width: 210px;
-    background-color: @tooltip-bg-color;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    /* Position the tooltip text */
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: (-@tooltip-offset);
+  &:hover {
+    opacity: 0.9;
   }
-
-  /* Arrow */
-  .tooltiptext::after {
-    content: " ";
-    position: absolute;
-    top: 100%; /* At the bottom of the tooltip */
-    left: @tooltip-offset;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: @tooltip-bg-color transparent transparent transparent;
-  }
-
-  &:hover .tooltiptext {
-    visibility: visible;
-  }
-}
-
-.no-transform {
-  text-transform: none;
 }
 
 canvas.animated-background {
-  z-index: -1;
-  position: absolute;
-}
-
-@signpost-height : 37px;
-/*
-.signpost from https://css-tricks.com/forums/topic/creating-a-signpost-shape-with-css-oblong-with-a-pointed-end/#post-174525
-*/
-.signpost { /* our rectangle */
-  width: 35px;
-  height: @signpost-height;
-  position: relative;
-
-  .signpost-pointy-end { /*  our pseudo-element */
-    position: absolute; /* takes the 'cap' out off flow */
-    top: 0; /* stick it to top edge of the sign */
-    left: 100%; /* push it way overto the right*/
-    height: 0; /* we're doing this with borders remember */
-    width: 0;
-    border-width: (@signpost-height / 2);
-    border-style: solid;
-    /* now we make some of theborders disappear*/
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-  }
+  z-index: -2;
+  position: fixed;
+  filter: blur(2px);
+  opacity: 0.3;
 }

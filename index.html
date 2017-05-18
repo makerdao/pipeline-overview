@@ -4,19 +4,15 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>Maker Pipeline Overview</title>
+	<title>Maker Pipeline</title>
 	<script src="/dist/main.bundle.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/dist/main.css">
 </head>
 <body>
 	<div>
 		<canvas class="animated-background"></canvas>
 		<div class="container">
-			<header id="top-header">
-				<!-- logo src gets set on main.js -->
-				<img id="logo" />
-				<div id="tag-line"><span>: PIPELINE OVERVIEW<span></div>
-			</header>
 			<div id="content">
 			</div>
 			<div id="modals">
@@ -24,37 +20,55 @@
 		</div>
 	</div>
 	<script id="main-template" type="text/x-handlebars-template">
-	  <table class="table panel panel-default">
-	    <thead>
-				<tr>
-					<th></th>
-					{{#each stages}}
-						<th>{{this}}</th>
-					{{/each}}
-				</tr>
-			</thead>
-	    <tbody>
-				{{#each groups}}
+		<div id="main-panel" class="panel panel-default">
+		  <table class="table table-responsive">
+		    <thead>
 					<tr>
-						<td class="task-group-td" rowspan="{{lengthPlusOne tasks}}">
-							<div class="colored-stripe" style="background-color:{{color}}"></div>
-							<h6><strong>{{taskGroup}}</strong></h6>
-						</td>
+						<th class="col-md-2">
+							<div id="title">
+								<img id="logo" /><span>PIPELINE</span>
+							</div>
+						</th>
+						{{#each stages}}
+							<th class="col-md-2">{{this}}</th>
+						{{/each}}
 					</tr>
-					{{#each tasks}}
-					<tr>
-						{{columnByStage this}}
-					</tr>
+				</thead>
+		    <tbody>
+					{{#each groups}}
+						<tr>
+							<td class="task-group-td" rowspan="{{lengthPlusOne tasks}}">
+								<strong>{{taskGroup}}</strong>
+							</td>
+						</tr>
+						{{#each tasks}}
+						<tr class="task-row">
+							{{columnByStage this}}
+						</tr>
+						{{/each}}
+						<!-- Hack to add a border after each task group -->
+						<tr class="extra-line-row">
+							<td></td>{{#each ../stages}}<td></td>{{/each}}
+						</tr>
 					{{/each}}
-				{{/each}}
-			</tbody>
-	  </table>
+				</tbody>
+			</table>
+			<div class="panel-footer">
+				<div id="social-links" class="pull-right">
+					<span>Follow us:</span>
+					<a href="https://twitter.com/MakerDAO"><img id="twitter-img" /></a>
+					<a href="https://chat.makerdao.com"><img id="chat-img" /><a>
+					<a href="https://github.com/makerdao"><img id="github-img" /></a>
+				</div>
+			</div>
+		</div>
 	</script>
 	<script id="task-column-template" type="text/x-handlebars-template">
-		<td>{{{content}}}</td>
+		<td style="background-color:{{color}}">{{{content}}}</td>
 	</script>
 	<script id="task-link-template" type="text/x-handlebars-template">
-		<a class="js-task-link btn btn-default no-transform" data-task-id="{{id}}" title="By @{{DRI}}" href="#" style="background-color:{{color}}">
+		<a class="task-link btn btn-default" data-task-id="{{id}}" href="#"
+		 style="background-color:{{colors.main}}; border-color:{{colors.border}}">
 			{{name}}
 		</a>
 	</script>
@@ -62,33 +76,37 @@
 		<div id="task-modal-container">
 			<div id="task-modal-overlay"></div>
 			<div class="task-modal panel panel-default">
+				<div class="panel-heading" style="background-color:{{colors.main}}">
+			    <h3 class="panel-title">
+						{{name}}
+						<a id="close-modal-button" href="#" class="btn btn-link">
+							<span class="glyphicon glyphicon-remove"></span>
+						</a>
+					</h3>
+			  </div>
 			  <div class="panel-body">
-					<a id="close-modal-button" href="#" class="btn btn-link">Close <span class="glyphicon glyphicon-remove"></span></a>
 					<header>
-						<div class="signpost" style="background-color:{{color}}">
-							<div class="signpost-pointy-end" style="border-left-color:{{color}}"></div>
+						<div class="stage-section">
+							<span class="category">Stage</span></br>
+							<span class="stage" style="color:{{colors.main}}">{{stage}}</span>
 						</div>
-						<div class="task-name"><h4>{{name}}</h4></div>
-						<div class="spacer" style="clear: both;"></div>
+						{{#if DRI}}
+						<div class="responsible">
+								<img class="responsible-img" src="https://chat.makerdao.com/avatar/{{DRI}}" />
+								<div class="responsible-link">
+									<span class="category">Responsible</span><br/>
+									<a href="https://chat.makerdao.com/direct/{{DRI}}" target="_blank">@{{DRI}}</a>
+								</div>
+						</div>
+						{{/if}}
 					</header>
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="my-tooltip"><span class="category">DRI</span>
-							  <span class="tooltiptext">Directly Responsible Individual</span>
-							</div>:
-							{{#if DRI}}
-								<a href="https://chat.makerdao.com/direct/{{DRI}}" target="_blank">@{{DRI}}</a>
-							{{else}}
-								<i>none</i>
-							{{/if}}
-						</div>
-						<div class="col-sm-3">
-							<span class="category">Stage: </span>{{stage}}
-						</div>
-					</div>
 					<p></p>
-					<p>{{description}}</p>
+					<p>
+						<h6 class="category">Description</h6>
+						{{description}}
+					</p>
 					{{#if subtasks}}
+					<p></p>
 					<p>
 						<h6 class="category">Subtasks</h6>
 						<ul>
@@ -99,6 +117,7 @@
 					</p>
 					{{/if}}
 					{{#if links}}
+					<p></p>
 					<p>
 						<h6 class="category">Links</h6>
 						<ul>

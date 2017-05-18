@@ -2,7 +2,12 @@ const data = {
   stages: ["Concept", "Implementation", "Review", "Done"],
   groups: [{
     taskGroup: "Core Technology",
-    color: "#77DD77",
+    colors: {
+      main: "#00d1df",
+      border: "#00c4d1",
+      lightCell: "#f3fbfc",
+      darkCell: "#f0f8f9"
+    },
     tasks: [
       {
         name: "Vow Settler",
@@ -34,7 +39,12 @@ const data = {
   },
   {
     taskGroup: "Specification",
-    color: "#FDFD96",
+    colors: {
+      main: "#9875c7",
+      border: "#8d6db9",
+      lightCell: "#f8f7fb",
+      darkCell: "#f5f4f7"
+    },
     tasks: [
       {
         name: "Purple Paper",
@@ -55,17 +65,24 @@ const data = {
   },
   {
     taskGroup: "Verification",
-    color: "#FFB347",
+    colors: {
+      main: "#ffb25e",
+      border: "#fdaa59",
+      lightCell: "#fffaf5",
+      darkCell: "#fcf7f2"
+    },
     tasks: [
       {
-        name: "External Code Review",
+        name: "Code Review",
+        fullname: "External Code Review",
         DRI: null,
         description: "The Dai Credit System will have to be reviewed by multiple competent external auditors before launching.",
         subtasks: ["Discuss potential auditors", "Contract with auditors", "Review & Feedback cycle"],
         stage: "Concept"
       },
       {
-        name: "Proof Production Pipeline",
+        name: "Proof Production",
+        fullname: "Proof Production Pipeline",
         DRI: null,
         description: "This task describes all the work necessary to create formal proofs about the Dai Credit System in linear logic. This will be the primary formal verification effort for the system, ensuring its safety by proving all of its invariants and guarantees. This work will build substantially on the groundwork laid by the Aquamarine paper.",
         subtasks: ["Understanding pirapira"],
@@ -76,7 +93,12 @@ const data = {
   },
   {
     taskGroup: "DevOps",
-    color: "#CB99C9",
+    colors: {
+      main: "#a4867f",
+      border: "#977c75",
+      lightCell: "#f9f8f7",
+      darkCell: "#f6f5f4"
+    },
     tasks: [
       {
         name: "Oracle MVP",
@@ -97,23 +119,31 @@ const data = {
   },
   {
     taskGroup: "MKR Governance",
-    color: "#AEC6CF",
+    colors: {
+      main: "#6ec78a",
+      border: "#68ba81",
+      lightCell: "#f6fbf8",
+      darkCell: "#f3f8f5"
+    },
     tasks: [
       {
-        name: "Establishment of the Dai Foundation",
+        name: "Dai Foundation",
+        fullname: "Establishment of the Dai Foundation",
         DRI: "rune",
         description: "This encompasses all the work necessary to get the Maker development fund transferred to a legal entity called the Dai Foundation. The development fund is currently administered by a transition team appointed by Rune, the original creator of all MKR, while he works with MME Legal to get the Dai Foundation established as a Stiftung in Zug Switzerland.",
         links: ["https://blog.makerdao.com/2017/02/19/establishment-of-the-dai-foundation/", "http://www.mme.ch/"],
         stage: "Implementation"
       },
       {
-        name: "Dai Credit System Dashboard",
+        name: "Dashboard",
+        fullname: "Dai Credit System Dashboard",
         DRI: "michael",
         description: "This will be a UI lens to view and interact with the Dai Credit System. It will allow for a bird's eye view of the system's open CDP set, oracle set, target price and rate. It will also allow a user to open a new CDP and manage any owned by their address. This explorer will be built on the DappHub application platform.",
         stage: "Concept"
       },
       {
-        name: "Proposal Bulletin Board with MKR Signaling",
+        name: "Bulletin Board",
+        fullname: "Proposal Bulletin Board with MKR Signaling",
         DRI: "zandy",
         description: "This task will begin to bootstrap the scientific community of MKR holders. Each CDP type will be posted publicly here for MKR holders to signal their approval or disapproval. Because we want to emphasize scientific consensus for MKR decisions, each proposal will have added Evidence and Interpretation sections to present the reasoning behind the proposal.",
         stage: "Concept"

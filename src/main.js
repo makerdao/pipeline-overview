@@ -1,9 +1,12 @@
-import './styles/custom-bootstrap.less';
+import 'bootstrap/less/bootstrap.less';
 import './styles/main.less';
 import Handlebars from 'handlebars';
 import data from './data';
 import background from './background';
-import logoImage from './makerdao.svg';
+import logoImage from './maker_black.svg';
+import twitterImage from './twitter_black.svg';
+import chatImage from './chat_black.svg';
+import githubImage from './github_black.svg';
 
 const templates = {};
 
@@ -12,7 +15,7 @@ const templates = {};
 	data.groups.forEach(group => {
 		group.tasks.forEach(task => {
 			task.id = id++;
-			task.color = group.color;
+			task.colors = group.colors;
 		})
 	})
 }());
@@ -37,11 +40,15 @@ Handlebars.registerHelper('columnByStage', task => {
 	}
 	let html = '';
 	for (let i = 0; i < data.stages.length; i++) {
+		let color = (i % 2) ? task.colors.lightCell : task.colors.darkCell;
 		if (i === stageIndex) {
 			const link = templates['task-link'](task);
-			html += templates['task-column']({content: link});
+			html += templates['task-column']({
+				content: link,
+				color
+			});
 		} else {
-			html += templates['task-column']({});
+			html += templates['task-column']({color});
 		}
 	}
 	return new Handlebars.SafeString(html);
@@ -58,11 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	document.getElementById("content").innerHTML = templates['main'](data);
-	const logo = document.getElementById("logo");
-	logo.setAttribute('src', logoImage);
+
+	// todo: fix webpack build and get rid of this
+	document.getElementById("logo").setAttribute('src', logoImage);
+	document.getElementById("twitter-img").setAttribute('src', twitterImage);
+	document.getElementById("chat-img").setAttribute('src', chatImage);
+	document.getElementById("github-img").setAttribute('src', githubImage);
 
 	// Bind click events
-	document.querySelectorAll('.js-task-link').forEach(link => {
+	document.querySelectorAll('.task-link').forEach(link => {
     link.addEventListener('click', event => {
 			// Show task modal
 			event.preventDefault();
@@ -83,10 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Animated background
 	if (screen.width > 768) {
 		background.start({
-			colors: data.groups.map(group => group.color),
+			colors: data.groups.map(group => group.colors.main),
 			lineSeparation: 22,
 			lineLength: 20,
-			lineWidth: 4,
+			lineWidth: 8,
 			tileWidth: 200,
 			alpha: 0.4
 		});
