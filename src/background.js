@@ -4,8 +4,8 @@ function fitToContainer(canvas){
   canvas.style.height = '100%';
 
   // ...then set the internal size to match
-  canvas.width  = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
+  canvas.width  = canvas.offsetWidth / 2;
+  canvas.height = canvas.offsetHeight / 2;
 }
 
 let paused = false;

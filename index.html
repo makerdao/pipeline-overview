@@ -20,36 +20,52 @@
 		</div>
 	</div>
 	<script id="main-template" type="text/x-handlebars-template">
-	  <table class="table panel panel-default">
-	    <thead>
-				<tr>
-					<th class="col-md-2">
-						<img id="logo" /> PIPELINE
-					</th>
-					{{#each stages}}
-						<th class="col-md-2">{{this}}</th>
-					{{/each}}
-				</tr>
-			</thead>
-	    <tbody>
-				{{#each groups}}
+		<div id="main-panel" class="panel panel-default">
+		  <table class="table table-responsive">
+		    <thead>
 					<tr>
-						<td class="task-group-td" rowspan="{{lengthPlusOne tasks}}">
-							<strong>{{taskGroup}}</strong>
-						</td>
+						<th class="col-md-2">
+							<img id="logo" /> PIPELINE
+						</th>
+						{{#each stages}}
+							<th class="col-md-2">{{this}}</th>
+						{{/each}}
 					</tr>
-					{{#each tasks}}
-					<tr class="task-row">
-						{{columnByStage this}}
-					</tr>
+				</thead>
+		    <tbody>
+					{{#each groups}}
+						<tr>
+							<td class="task-group-td" rowspan="{{lengthPlusOne tasks}}">
+								<strong>{{taskGroup}}</strong>
+							</td>
+						</tr>
+						{{#each tasks}}
+						<tr class="task-row">
+							{{columnByStage this}}
+						</tr>
+						{{/each}}
+						<!-- Hack to add a border after each task group -->
+						<tr class="extra-line-row">
+							<td></td>{{#each ../stages}}<td></td>{{/each}}
+						</tr>
 					{{/each}}
-					<!-- Hack to add a border after each task group -->
-					<tr class="extra-line-row">
-						<td></td>{{#each ../stages}}<td></td>{{/each}}
-					</tr>
-				{{/each}}
-			</tbody>
-	  </table>
+				</tbody>
+			</table>
+			<div class="panel-footer">
+				<div class="pull-right">
+					Follow us:
+					<a href="https://twitter.com/MakerDAO">
+						<img id="twitter-img" />
+					</a>
+					<a href="https://chat.makerdao.com">
+						<img id="chat-img" />
+					</a>
+					<a href="https://github.com/makerdao">
+						<img id="github-img" />
+					</a>
+				</div>
+			</div>
+		</div>
 	</script>
 	<script id="task-column-template" type="text/x-handlebars-template">
 		<td style="background-color:{{color}}">{{{content}}}</td>

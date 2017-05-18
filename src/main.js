@@ -3,7 +3,10 @@ import './styles/main.less';
 import Handlebars from 'handlebars';
 import data from './data';
 import background from './background';
-import logoImage from './makerdao.svg';
+import logoImage from './maker_black.svg';
+import twitterImage from './twitter_black.svg';
+import chatImage from './chat_black.svg';
+import githubImage from './github_black.svg';
 
 const templates = {};
 
@@ -62,8 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	document.getElementById("content").innerHTML = templates['main'](data);
-	const logo = document.getElementById("logo");
-	logo.setAttribute('src', logoImage);
+
+	// todo: fix webpack build and get rid of this
+	document.getElementById("logo").setAttribute('src', logoImage);
+	document.getElementById("twitter-img").setAttribute('src', twitterImage);
+	document.getElementById("chat-img").setAttribute('src', chatImage);
+	document.getElementById("github-img").setAttribute('src', githubImage);
 
 	// Bind click events
 	document.querySelectorAll('.task-link').forEach(link => {
@@ -90,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			colors: data.groups.map(group => group.colors.main),
 			lineSeparation: 22,
 			lineLength: 20,
-			lineWidth: 4,
+			lineWidth: 8,
 			tileWidth: 200,
 			alpha: 0.4
 		});
