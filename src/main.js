@@ -1,7 +1,6 @@
 import 'bootstrap/less/bootstrap.less';
 import './styles/main.less';
 import Handlebars from 'handlebars';
-import background from './background';
 import logoImage from './maker_black.svg';
 import twitterImage from './twitter_black.svg';
 import chatImage from './chat_black.svg';
@@ -80,25 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			const taskId = event.target.dataset.taskId;
 			const task = getTaskById(taskId);
 			document.getElementById("modals").innerHTML = templates['task-modal'](task);
-			background.pause();
 			function closeModal(event) {
 				event.preventDefault();
 				document.getElementById("modals").innerHTML = '';
-				background.resume();
 			}
 			document.getElementById("close-modal-button").addEventListener('click', closeModal);
 			document.getElementById("task-modal-overlay").addEventListener('click', closeModal);
     });
 	});
-
-	// Animated background
-	if (screen.width > 768) {
-		background.start({
-			colors: data.groups.map(group => group.colors.main),
-			lineSeparation: 22,
-			lineLength: 20,
-			lineWidth: 8,
-			tileWidth: 200
-		});
-	}
 });
