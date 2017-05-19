@@ -1,4 +1,4 @@
-const data = {
+pipelineData = {
   stages: ["Concept", "Implementation", "Review", "Done"],
   groups: [{
     taskGroup: "Core Technology",
@@ -151,5 +151,3 @@ const data = {
     ]
   }]
 };
-
-export default data;

@@ -1,7 +1,6 @@
 import 'bootstrap/less/bootstrap.less';
 import './styles/main.less';
 import Handlebars from 'handlebars';
-import data from './data';
 import background from './background';
 import logoImage from './maker_black.svg';
 import twitterImage from './twitter_black.svg';
@@ -9,6 +8,7 @@ import chatImage from './chat_black.svg';
 import githubImage from './github_black.svg';
 
 const templates = {};
+const data = pipelineData;
 
 (function addTaskIdsAndColor() {
 	let id = 0;
