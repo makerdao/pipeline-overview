@@ -22,7 +22,7 @@ const background = {
         x: Math.random() * modelWidth,
         y: ((index + 1) * (lineWidth + lineSeparation)) + yOffset,
         color,
-        speed: (Math.random() * 0.1) + 0.05
+        speed: (Math.random() * 0.2) + 0.1
       }));
     }
 
@@ -33,11 +33,18 @@ const background = {
 
     // Context global setup
     ctx.lineWidth = lineWidth;
-
+    let skip = false;
     function draw() {
       if (paused) {
         window.requestAnimationFrame(draw);
         return;
+      }
+      if (skip) { // skip half the frames for better cpu performance
+        skip = false;
+        window.requestAnimationFrame(draw);
+        return;
+      } else {
+        skip = true;
       }
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       targetCtx.clearRect(0, 0, targetCtx.canvas.width, targetCtx.canvas.height);
