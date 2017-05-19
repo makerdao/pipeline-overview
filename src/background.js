@@ -22,7 +22,7 @@ const background = {
         x: Math.random() * modelWidth,
         y: ((index + 1) * (lineWidth + lineSeparation)) + yOffset,
         color,
-        speed: (Math.random() * 0.2) + 0.1
+        speed: (Math.random() * 0.1) + 0.05
       }));
     }
 
@@ -32,7 +32,6 @@ const background = {
     modelCanvas.height = ((lineSeparation + lineWidth) * lines.length) + lineWidth;
 
     // Context global setup
-    ctx.lineCap = "round";
     ctx.lineWidth = lineWidth;
 
     function draw() {

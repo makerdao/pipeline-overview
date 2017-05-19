@@ -98,8 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			lineSeparation: 22,
 			lineLength: 20,
 			lineWidth: 8,
-			tileWidth: 200,
-			alpha: 0.4
+			tileWidth: 200
 		});
 	}
 });
