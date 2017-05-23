@@ -31,23 +31,52 @@ a {
       margin-right: 20px;
     }
 
-    span {
+    #follow-us {/* "Follow us" */
       font-weight: bold;
       font-size: 17px;
       margin-right: 15px;
       position: relative;
-      top: -3px;
+      top: -14px;
     }
+
     a {
       position: relative;
       top: -5px;
       &:hover {
         text-decoration: none;
       }
+      div { /* link images */
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+      }
     }
+
     #twitter-img {
       /* Make it the same size as the others*/
-      margin: 6.5px 9px 6.5px 9px;
+      margin: 6px 3.5px 6px 3.5px;
+      width: 25px;
+      height: 20px;
+      background-image: url('../twitter_black.svg');
+    }
+    a:hover #twitter-img {
+      background-image: url('../twitter_color.svg');
+    }
+
+    #github-img {
+      background-position: -3px;
+      background-image: url('../github_black.svg');
+    }
+    a:hover #github-img {
+      background-image: url('../github_color.svg');
+    }
+
+    #chat-img {
+      background-position: -3px;
+      background-image: url('../chat_black.svg');
+    }
+    a:hover #chat-img {
+      background-image: url('../chat_color.svg');
     }
   }
 }
