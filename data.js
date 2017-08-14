@@ -10,6 +10,14 @@ pipelineData = {
     },
     tasks: [
       {
+        name: "Sai",
+        DRI: "rain",
+        description: "Sai (Simple Dai) represents our first generation temporary stablecoin. The design mimics the mechanics of the actual Dai Credit System, which means we will be able to learn many lessons about the operation and implementation tradeoffs associated with an actual stablecoin in the wild. The main difference between Sai and the Dai Credit System is the fact that Sai completely trusts the authorized price feed provider (detailed in the Oracle MVP task), allowing for a much simpler design. We are going to start with a slow rollout, but we intend to open Sai up to the community and make it easy for anyone to benefit from its stability.",
+        subtasks: ["UX Improvements", "Sai Dashboard", "Feedback Cycle into Dai Credit System"],
+        links: ["https://blog.makerdao.com/2017/06/05/introducing-sai/","https://github.com/makerdao/sai", "https://github.com/makerdao/sai-explorer"],
+        stage: "Implementation"
+      },
+      {
         name: "Vow Settler",
         DRI: "rain",
         description: "The Vow settler is the last major component of the Dai Credit System to be implemented. It is responsible for liquidating risky CDP's and sending their collateral to the token auction (i.e. flip auction), inflating MKR for the emergency debt auction (i.e. flop auction), and collecting stability fees for the Buy&Burn auction (i.e. flap auction).",
@@ -22,18 +30,16 @@ pipelineData = {
         stage: "Review"
       },
       {
-        name: "Prism",
-        DRI: "zandy",
-        description: "This task will incorporate an initial MKR governance solution into the Dai Credit System. MKR holders will be able to vote for trusted sets of addresses, with the ability to change their vote and modify the list over time. These addresses will then make up the set of price feed providers and the developer admin multisig.",
+        name: "Multi-Collateral Cage",
+        DRI: null,
+        description: "The multi-collateral cage process is what allows any Dai Stablecoin System to be gracefully shut down. Like Sai's cage system, this process will include a way for CDP's to be wound down in an orderly fashion and a way for Dai holders to redeem their stablecoins in exchange for collateral. This work item will allow us to launch the Dai Stablecoin System before having mathematically proven its correctness. The cage function will be engaged by administrators if the a serious error is discovered, or during an upgrade process from one system to the next, such as when a formally verified system is completed.",
         stage: "Concept"
       },
       {
-        name: "Sai",
+        name: "Root Authority",
         DRI: "nikolai",
-        description: "By far the most impactful work item on this list, Sai (Simple Dai) represents our first generation temporary stablecoin. The design mimics the mechanics of the actual Dai Credit System, which means we will be able to learn many lessons about the operation and implementation tradeoffs associated with an actual stablecoin in the wild. The main difference between Sai and the Dai Credit System is the fact that Sai completely trusts the authorized price feed provider (detailed in the Oracle MVP task), allowing for a much simpler design. We are going to start with a slow rollout, but we intend to open Sai up to the community and make it easy for anyone to benefit from its stability.",
-        subtasks: ["Launch", "Feedback Cycle into Dai Credit System"],
-        links: ["https://github.com/makerdao/sai", "https://github.com/makerdao/sai-explorer"],
-        stage: "Implementation"
+        description: "The Root Authority of the Dai Credit System will be the MKR-driven \"constitution\" that selects what form of governance the system will actually use. MKR holders will be able to select a governance method at this level and give it authority to change parameters in the system. They will then contribute to active consensus-finding via the functionality of their chosen method. The first proposed governance method that will be implemented is detailed below under MKR Voting.",
+        stage: "Concept"
       }
     ]
   },
@@ -50,7 +56,7 @@ pipelineData = {
         name: "Purple Paper",
         DRI: "mbrock",
         description: "This is the official reference implementation of Maker. It is written in Haskell, and defines the data structures and state transition functions that make up the Dai Credit System.",
-        subtasks: ["Specify the Vow Settler", "Purple Paper CLI", "Purple Paper Educational UI"],
+        subtasks: ["Specify the Vow Settler", "Specify Multi-Collateral Cage", "Purple Paper CLI", "Purple Paper Educational UI"],
         links: ["http://stablecoin.technology/purple.pdf"],
         stage: "Implementation"
       },
@@ -75,7 +81,7 @@ pipelineData = {
       {
         name: "Code Review",
         fullname: "External Code Review",
-        DRI: null,
+        DRI: "zandy",
         description: "The Dai Credit System will have to be reviewed by multiple competent external auditors before launching.",
         subtasks: ["Discuss potential auditors", "Contract with auditors", "Review & Feedback cycle"],
         stage: "Concept"
@@ -83,10 +89,9 @@ pipelineData = {
       {
         name: "Proof Production",
         fullname: "Proof Production Pipeline",
-        DRI: null,
+        DRI: "denis",
         description: "This task describes all the work necessary to create formal proofs about the Dai Credit System in linear logic. This will be the primary formal verification effort for the system, ensuring its safety by proving all of its invariants and guarantees. This work will build substantially on the groundwork laid by the Aquamarine paper.",
-        subtasks: ["Understanding pirapira"],
-        links: ["https://medium.com/@pirapira/ethereum-virtual-machine-for-coq-v0-0-2-d2568e068b18", "https://medium.com/@pirapira/hoare-logics-for-ethereum-virtual-machine-4f4fc799486"],
+        links: ["https://github.com/evm-lang-design/evm-lang-design"],
         stage: "Concept"
       }
     ]
@@ -101,19 +106,19 @@ pipelineData = {
     },
     tasks: [
       {
-        name: "Oracle MVP",
+        name: "Price Feeds",
         DRI: "james",
-        description: "This is the minimum viable product for the Oracle ecosystem. At the start, the system will consist of three price feed providers reading from different Ethereum marketplaces and regularly posting the ETH/USD rate. Then these three prices will be aggregated into a wrapper contract that will provide the median price as the canonical price for Sai. Each of these price feed providers will be administered by James initially.",
+        description: "This is the minimum viable product for the price oracle ecosystem. At the start, the system will consist of three price feed providers reading from different Ethereum marketplaces and regularly posting the ETH/USD rate. Then these three prices will be aggregated into a wrapper contract that will provide the median price as the canonical price for Sai. Each of these price feed providers will be administered by James initially and later we will add other community members' price feeds for redundancy.",
         subtasks: ["DSCache Instances Running", "Medianizer Running"],
         links: ["https://github.com/makerdao/medianizer"],
-        stage: "Review"
+        stage: "Done"
       },
       {
         name: "Keeper Software",
         DRI: "reverendus",
         description: "The Keeper framework will present a sensible means of running periodic tasks against the blockchain. This relates to Maker because we have many aspects of our system that expect profit-seeking robots to \"poke\" a contract and trigger a state change. We want to ensure that as many users as possible have access to these profit-making opportunities, to ensure the overall health of the system.",
-        subtasks: ["Oracle price publishing task", "Token auction participation task", "Extract repeatable logic"],
-        stage: "Concept"
+        subtasks: ["CDP Liquidation task", "CDP Maintenance task", "Basic SAI arbitrage task"],
+        stage: "Implementation"
       }
     ]
   },
@@ -127,18 +132,23 @@ pipelineData = {
     },
     tasks: [
       {
+        name: "MKR Voting",
+        DRI: "nikolai",
+        description: "This will be the first proposed governance method to administer the Dai Stablecoin System. It will likely use some form of simple majority voting with a tightly defined quorum and MKR deposits to prevent griefing. The details are still being actively discussed.",
+        stage: "Concept"
+      },
+      {
         name: "Dai Foundation",
         fullname: "Establishment of the Dai Foundation",
         DRI: "rune",
         description: "This encompasses all the work necessary to get the Maker development fund transferred to a legal entity called the Dai Foundation. The development fund is currently administered by a transition team appointed by Rune, the original creator of all MKR, while he works with MME Legal to get the Dai Foundation established as a Stiftung in Zug Switzerland.",
-        links: ["https://blog.makerdao.com/2017/02/19/establishment-of-the-dai-foundation/", "http://www.mme.ch/"],
         stage: "Implementation"
       },
       {
         name: "Dashboard",
         fullname: "Dai Credit System Dashboard",
-        DRI: "michael",
-        description: "This will be a UI lens to view and interact with the Dai Credit System. It will allow for a bird's eye view of the system's open CDP set, oracle set, target price and rate. It will also allow a user to open a new CDP and manage any owned by their address. This explorer will be built on the DappHub application platform.",
+        DRI: "kat",
+        description: "This will be a UI lens to view and interact with the Dai Credit System. It will allow for a bird's eye view of the system's open CDP set, oracle set, target price and rate. It will also allow a user to open a new CDP and manage any owned by their address.",
         stage: "Concept"
       },
       {
