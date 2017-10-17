@@ -1,7 +1,13 @@
 # Maker Pipeline
 
-View: https://ferni.github.io/pipeline-overview/
+View: https://makerdao.github.io/pipeline-overview/
 
-## Updating
+## Updating the data
 
-In order to update the pipeline live site simply update this file: https://github.com/ferni/pipeline-overview/blob/gh-pages/data.js
+In order to change the underlying data of the site simply update this file (there's no need for re-building the project): https://github.com/makerdao/pipeline-overview/blob/gh-pages/data.js
+
+## Building
+
+In case there are changes to the site that are not just the underlying data, build it with:
+
+    npm run build
