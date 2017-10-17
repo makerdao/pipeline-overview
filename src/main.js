@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	document.getElementById("content").innerHTML = templates['main'](data);
+  document.getElementById("logo").setAttribute('src', logoImage);
 
 	// Bind click events
 	document.querySelectorAll('.task-link').forEach(link => {
