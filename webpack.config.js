@@ -1,5 +1,6 @@
 // Webpack configuration file
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var resolve = require("path").resolve;
 
 module.exports = {
@@ -28,12 +29,15 @@ module.exports = {
 			test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
 			loader: "file-loader",
 			query: {
-				publicPath: '/dist/'
+				publicPath: "./"
 		  }
 		}]
 	},
 	plugins: [
-        new ExtractTextPlugin("[name].css")
+        new ExtractTextPlugin("[name].css"),
+				new CopyWebpackPlugin([
+            { from: 'src/maker_black.svg', to: 'maker_black.svg' }
+				])
     ],
 	devtool: "#source-map",
 	node: {

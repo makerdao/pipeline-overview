@@ -1,7 +1,6 @@
 import 'bootstrap/less/bootstrap.less';
 import './styles/main.less';
 import Handlebars from 'handlebars';
-import logoImage from './maker_black.svg';
 
 const templates = {};
 const data = pipelineData;
