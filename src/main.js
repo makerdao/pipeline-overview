@@ -1,7 +1,6 @@
 import 'bootstrap/less/bootstrap.less';
 import './styles/main.less';
 import Handlebars from 'handlebars';
-import logoImage from './maker_black.svg';
 
 const templates = {};
 const data = pipelineData;
@@ -61,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	document.getElementById("content").innerHTML = templates['main'](data);
-  document.getElementById("logo").setAttribute('src', logoImage);
 
 	// Bind click events
 	document.querySelectorAll('.task-link').forEach(link => {
