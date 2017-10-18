@@ -11,3 +11,9 @@ In order to change the underlying data of the site simply update this file (ther
 In case there are changes to the site that are not just the underlying data, build it with:
 
     npm run build
+
+## Development
+
+Fire the Webpack dev server with:
+
+    npm run dev-server
