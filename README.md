@@ -4,7 +4,7 @@ View: https://makerdao.github.io/pipeline-overview/
 
 ## Updating the data
 
-In order to change the underlying data of the site simply update this file (there's no need for re-building the project): https://github.com/makerdao/pipeline-overview/blob/gh-pages/data.js
+In order to change the underlying data of the site simply update this file (there's no need for re-building the project): https://github.com/makerdao/pipeline-overview/blob/master/data.js
 
 ## Building
 
