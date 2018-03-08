@@ -6739,6 +6739,7 @@ a {
   border: none;
   box-shadow: 0px 1px 5px 0px gray;
   overflow-x: auto;
+  width: 100%;
 }
 #main-panel .panel-footer {
   border-top: none;
