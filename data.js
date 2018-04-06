@@ -114,8 +114,9 @@ pipelineData = {
       {
         name: "REST API",
         DRI: "dc",
-        description: "REST API DESCRIPTION",
-        stage: "Implementation"
+        description: "This is a robust read-only service that will provide a programmtic view of the Dai Stablecoin system. It will be built on top of Vulcanize DB, an open source PostgreSQL extension designed to efficiently cache merkle tree data structures such as the Ethereum blockchain. Programmtic users will be able to run complex queries against this API to get any data they need for analysis of the overall system.",
+        stage: "Implementation",
+        links: ["https://github.com/vulcanize/VulcanizeDB"]
       }
     ]
   },
@@ -130,9 +131,9 @@ pipelineData = {
     tasks: [
       {
         name: "MKR Dashboard",
-        DRI: "nikolai",
-        description: "MKR DASHBOARD DESCRIPTION",
-        stage: "Concept"
+        DRI: "hennny",
+        description: "This is a UI lens for MKR holders to govern the Dai Stablecoin System. It will show a view of the Root Authority, all active proposals currently up for a vote, and links to discussion threads for each one. It will also offer a smart contract wallet that protects MKR holders from exposing their hardware wallet keys, while still allowing them to vote via Metamask or another Ethereum browser. It will be built with a forward-looking mentality, as it will need to be expanded significantly as we add new Layer 2 Governance functionality.",
+        stage: "Implementation"
       },
       {
         name: "Dai Dashboard",
@@ -144,7 +145,7 @@ pipelineData = {
       {
         name: "Auctions Dashboard",
         DRI: "zandy",
-        description: "AUCTIONS DASHBOARD DESCRIPTION",
+        description: "This is a UI lens to view and interact with the standalone token-to-token auction system. It will allow for a bird's eye view of the system's open auctions, both Maker-related and otherwise. It will also allow a user to open a new auction, bid on existing auctions, and manage any that are owned by their address.",
         stage: "Concept"
       }
     ]
